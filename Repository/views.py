@@ -46,3 +46,9 @@ class QuestionRetrieveUpdateDeleteView(APIView):
             return Response(data=serializer_instance.data)  #return the serialized data as a response
         else:
             return Response(data=serializer_instance.errors)  #return the validation errors as a response
+
+    def delete(self,request,pk):  # pk is the primary key of the question we want to delete
+        Questions.objects.filter(id=pk).delete()  #delete the question object with the given primary key
+        return Response(data={
+            "message": "Question deleted successfully"
+        })

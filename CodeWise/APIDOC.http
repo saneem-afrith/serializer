@@ -35,3 +35,6 @@ Content-Type: application/json
     "sample_output": "120",
     "is_active": true
 }
+
+###
+DELETE http://127.0.0.1:8000/questions/2/

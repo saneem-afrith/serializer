@@ -57,3 +57,14 @@ DELETE http://127.0.0.1:8000/questions/1/
 ###
 GET http://127.0.0.1:8000/submissions/
 Accept: application/json
+
+###
+POST http://127.0.0.1:8000/submissions/
+Content-Type: application/json
+
+{
+    "answer": "120",
+    "question_id": 1,
+    "owner":"malphon"
+
+}

@@ -60,3 +60,13 @@ class SubmissionListCreateView(APIView):
 
         serializer_instance = SubmissionSerializer(qs, many=True)
         return Response(serializer_instance.data)
+
+    def post(self, request):
+        form_data = request.data
+        serializer_instance = SubmissionSerializer(data=form_data)
+        if serializer_instance.is_valid():
+            actual_data = serializer_instance.validated_data
+            Submission.objects.create(**actual_data)
+            return Response(data=serializer_instance.data)
+        else:
+            return Response(data=serializer_instance.errors)

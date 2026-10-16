@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from Repository.models import Questions
-from Repository.serializers import QuestionSerializer
+from Repository.models import Questions, Submission
+from Repository.serializers import QuestionSerializer, SubmissionSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
@@ -52,3 +52,11 @@ class QuestionRetrieveUpdateDeleteView(APIView):
         return Response(data={
             "message": "Question deleted successfully"
         })
+
+class SubmissionListCreateView(APIView):
+    def get(self,request):
+
+        qs = Submission.objects.all()   #collection of submissions
+
+        serializer_instance = SubmissionSerializer(qs, many=True)
+        return Response(serializer_instance.data)

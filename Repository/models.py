@@ -1,3 +1,5 @@
+from pyexpat import model
+
 from django.shortcuts import render
 from django.db import models
 
@@ -28,3 +30,11 @@ class  Questions(models.Model):
     sample_input = models.TextField()
     sample_output = models.TextField()
     is_active = models.BooleanField(default=True)
+
+class Submission(models.Model):
+    answer = models.TextField()
+    question_id = models.IntegerField()
+    points = models.PositiveIntegerField(null=True)
+    owner = models.CharField(max_length=200)
+    submission_date = models.DateTimeField(auto_now_add=True)
+    remarks = models.TextField(null=True)

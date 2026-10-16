@@ -11,3 +11,11 @@ class QuestionSerializer(serializers.Serializer):
     sample_input = serializers.CharField()
     sample_output = serializers.CharField()
     is_active = serializers.BooleanField()
+
+class SubmissionSerializer(serializers.Serializer):
+    answer = serializers.CharField()
+    question_id = serializers.IntegerField()
+    points = serializers.IntegerField(read_only=True)
+    owner = serializers.CharField()
+    submission_date = serializers.DateTimeField(read_only=True)
+    remarks = serializers.CharField(read_only=True)

@@ -18,11 +18,26 @@ Content-Type: application/json
 }
 
 ###
+POST http://127.0.0.1:8000/questions/1/
+Content-Type: application/json
+
+{
+    "title": "python program to find the factorial of a given number",
+    "language": "python",
+    "difficulty_level": "hard",
+    "notes": "This is a simple question based django python program",
+    "topic": "django",
+    "sample_input": "5",
+    "sample_output": "120",
+    "is_active": true
+}
+
+###
 GET http://127.0.0.1:8000/questions/1/
 Accept: application/json
 
 ###
-PUT http://127.0.0.1:8000/questions/2/
+PUT http://127.0.0.1:8000/questions/1/
 Content-Type: application/json
 
 {
@@ -37,4 +52,8 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://127.0.0.1:8000/questions/2/
+DELETE http://127.0.0.1:8000/questions/1/
+
+###
+GET http://127.0.0.1:8000/submissions/
+Accept: application/json
